@@ -1,0 +1,41 @@
+{
+  "name": "Coozila!",
+  "description": {
+    "chrome": "Coozila! is a privacy-focused search engine. Visitors are not tracked",
+    "firefox": "Coozila! is a privacy-focused search engine. Visitors are not tracked"
+  },
+  "manifest_version": 2,
+  "version": "1.0",
+  "default_locale": "en",
+  "icons": {
+    "16": "coozila-icon-16.png",
+    "32": "coozila-icon-32.png",
+    "128": "coozila-icon-128.png"
+  },
+  "web_accessible_resources": ["favicon.ico"],
+  "chrome_settings_overrides": {
+    "search_provider": {
+      "name": "Coozila!",
+      "search_url": "https://www.coozila.com/search",
+      "search_form": "https://www.coozila.com/search?q={searchTerms}",
+      "search_url_get_params": "q={searchTerms}",
+      "suggest_url": "https://www.coozila.com/autocompleter?q={searchTerms}",
+      "suggest_url_get_params": "q={searchTerms}"
+    }
+  },
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "http://www.coozila.fr/",
+    "http://www.coozila.it/"
+    // Adaugă altele domenii de permisiuni, dacă este cazul
+  ],
+  "update_url": "https://www.coozila.com/chrome-updates.xml",
+  "applications": {
+    "gecko": {
+      "id": "coozila@aminomancer",
+      "update_url": "https://www.coozila.com/firefox-updates.json"
+    }
+  }
+}
+
