@@ -1,0 +1,12 @@
+{
+  "addons": {
+    "coozila@aminomancer": {
+      "updates": [
+        {
+          "version": "1.0",
+          "update_link": "https://addons.coozila.com/downloads/coozila-firefox-v1.0.xpi"
+        }
+      ]
+    }
+  }
+}
