@@ -1,0 +1,15 @@
+{
+    "extName": {
+      "message": "Numele Extensiei",
+      "description": "Descrierea extensiei"
+    },
+    "extDescription": {
+      "message": "Descrierea extensiei",
+      "description": "Descrierea detaliată a extensiei"
+    },
+    "welcome_message": {
+      "message": "Bun venit la extensia noastră!",
+      "description": "Mesaj de bun venit"
+    }
+  }
+  

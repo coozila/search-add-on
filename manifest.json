@@ -1,17 +1,17 @@
 {
   "manifest_version": 3,
-  "name": "Coozila Extension",
+  "name": "__MSG_extName__",
   "version": "1.0",
-  "description": "A privacy-oriented search engine extension",
-  "permissions": ["storage", "declarativeContent"],
+  "description": "__MSG_extDescription__",
+  "permissions": ["storage", "activeTab"],
   "action": {
     "default_icon": {
       "16": "coozila-icon-16.png",
       "48": "coozila-icon-48.png",
       "128": "coozila-icon-128.png"
     },
-    "default_title": "Coozila Extension",
-    "default_popup": "popup.html"
+    "default_title": "Coozila!",
+    "default_popup": "newtab.html"
   },
   "icons": {
     "16": "coozila-icon-16.png",
@@ -19,43 +19,20 @@
     "128": "coozila-icon-128.png"
   },
   "background": {
-    "service_worker": "service_worker.js"
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["https://www.coozila.com/*", "https://www.coozila.co.uk/*", "https://www.coozila.it/*", "https://www.coozila.ro/*"],
-      "js": ["content.js"]
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
     }
   ],
-  "declarativeContent": {
-    "pageChanged": {
-      "conditions": [
-        {
-          "pageUrl": {
-            "hostEquals": "www.coozila.com"
-          }
-        },
-        {
-          "pageUrl": {
-            "hostEquals": "www.coozila.co.uk"
-          }
-        },
-        {
-          "pageUrl": {
-            "hostEquals": "www.coozila.it"
-          }
-        },
-        {
-          "pageUrl": {
-            "hostEquals": "www.coozila.ro"
-          }
-        }
-      ],
-      "actions": [
-        {
-          "type": "showPageAction"
-        }
-      ]
-    }
-  }
+  "options_ui": {
+    "page": "options.html"
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "default_locale": "en"
 }

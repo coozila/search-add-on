@@ -1,0 +1,40 @@
+<!-- Option.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coozila Extension Options</title>
+</head>
+<body>
+  <h2>Choose Search Engine:</h2>
+
+  <script>
+    // Funcție pentru a trimite un mesaj către background.js pentru a actualiza domeniul implicit
+    function updateDefaultDomain(domain) {
+      chrome.runtime.sendMessage({ action: 'updateDefaultDomain', domain: domain });
+    }
+
+    const userLanguage = navigator.language || navigator.userLanguage;
+    const searchEngines = {
+      "en": "https://www.coozila.com/search",
+      "en-gb": "https://www.coozila.co.uk/search",
+      "it": "https://www.coozila.it/search",
+      "ro": "https://www.coozila.ro/search",
+      // Adăugați și altele după cum este necesar
+    };
+
+    const selectedEngine = searchEngines[userLanguage] || searchEngines["en"];
+
+    document.write(`
+      <label>
+        <input type="radio" name="searchEngine" value="${selectedEngine}" checked>
+        Coozila
+      </label>
+      <button onclick="updateDefaultDomain('www.coozila.com')">Set Default Domain</button>
+    `);
+  </script>
+</body>
+</html>

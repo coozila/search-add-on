@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coozila!</title>
+    <!-- Adaugă stilurile de la Tabler -->
+    <link rel="stylesheet" href="https://www.coozila.com/static/themes/simple/css/coozila.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="https://www.coozila.com/static/themes/simple/css/coozila-rtl.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="https://www.coozila.com/static/themes/simple/css/src/less/mixins.less" type="text/css" media="screen" />
+    <link rel="stylesheet" href="https://www.coozila.com/static/themes/simple/css/src/less/style.less" type="text/css" media="screen" />
+    <!-- Adaugă orice stil sau biblioteci CSS aici -->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Conținutul paginii de acțiune -->
+    <form id="coozilaSearchForm" method="get" action="https://www.coozila.com/search" target="_blank">
+        <!-- search      --> <input type="text" name="q" id="coozilaSearchQuery" />
+        <!-- categories  --> <input type="hidden" name="categories" value="general,social media" />
+        <!-- language    --> <input type="hidden" name="lang" value="all" />
+        <!-- locale      --> <input type="hidden" name="locale" value="en" />
+        <!-- date filter --> <input type="hidden" name="time_range" value="month" />
+        <!-- buton de cautare --> <button type="submit">Search</button>
+    </form>
+    <!-- Adaugă orice alte elemente HTML sau logica JavaScript aici -->
+</body>
+</html>
