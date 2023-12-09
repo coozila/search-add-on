@@ -1,41 +1,61 @@
 {
-  "name": "Coozila!",
-  "description": {
-    "chrome": "Coozila! is a privacy-focused search engine. Visitors are not tracked",
-    "firefox": "Coozila! is a privacy-focused search engine. Visitors are not tracked"
-  },
-  "manifest_version": 2,
+  "manifest_version": 3,
+  "name": "Coozila Extension",
   "version": "1.0",
-  "default_locale": "en",
+  "description": "A privacy-oriented search engine extension",
+  "permissions": ["storage", "declarativeContent"],
+  "action": {
+    "default_icon": {
+      "16": "coozila-icon-16.png",
+      "48": "coozila-icon-48.png",
+      "128": "coozila-icon-128.png"
+    },
+    "default_title": "Coozila Extension",
+    "default_popup": "popup.html"
+  },
   "icons": {
     "16": "coozila-icon-16.png",
-    "32": "coozila-icon-32.png",
+    "48": "coozila-icon-48.png",
     "128": "coozila-icon-128.png"
   },
-  "web_accessible_resources": ["favicon.ico"],
-  "chrome_settings_overrides": {
-    "search_provider": {
-      "name": "Coozila!",
-      "search_url": "https://www.coozila.com/search",
-      "search_form": "https://www.coozila.com/search?q={searchTerms}",
-      "search_url_get_params": "q={searchTerms}",
-      "suggest_url": "https://www.coozila.com/autocompleter?q={searchTerms}",
-      "suggest_url_get_params": "q={searchTerms}"
-    }
+  "background": {
+    "service_worker": "service_worker.js"
   },
-  "permissions": [
-    "storage",
-    "unlimitedStorage",
-    "http://www.coozila.fr/",
-    "http://www.coozila.it/"
-    // Adaugă altele domenii de permisiuni, dacă este cazul
+  "content_scripts": [
+    {
+      "matches": ["https://www.coozila.com/*", "https://www.coozila.co.uk/*", "https://www.coozila.it/*", "https://www.coozila.ro/*"],
+      "js": ["content.js"]
+    }
   ],
-  "update_url": "https://www.coozila.com/chrome-updates.xml",
-  "applications": {
-    "gecko": {
-      "id": "coozila@aminomancer",
-      "update_url": "https://www.coozila.com/firefox-updates.json"
+  "declarativeContent": {
+    "pageChanged": {
+      "conditions": [
+        {
+          "pageUrl": {
+            "hostEquals": "www.coozila.com"
+          }
+        },
+        {
+          "pageUrl": {
+            "hostEquals": "www.coozila.co.uk"
+          }
+        },
+        {
+          "pageUrl": {
+            "hostEquals": "www.coozila.it"
+          }
+        },
+        {
+          "pageUrl": {
+            "hostEquals": "www.coozila.ro"
+          }
+        }
+      ],
+      "actions": [
+        {
+          "type": "showPageAction"
+        }
+      ]
     }
   }
 }
-
