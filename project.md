@@ -155,6 +155,7 @@ Extension options page where users can set up the default search engine.
 
 ## 5. `project.md`
 
+
 The file defines the planning for building the app extension, suggestions, and all the tasks
 
 ### Tasks:
@@ -198,7 +199,6 @@ The file defines the planning for building the app extension, suggestions, and a
 
 5.16 **Analytics Integration**: Explore integration with analytics tools to gather insights into user behavior and preferences.
 
-Remember to adapt and prioritize suggestions based on the specific goals and context of the Coozila! Chrome extension project.
 
 
 
