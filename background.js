@@ -1,4 +1,16 @@
-let currentDomain = 'www.coozila.com'; /* Default domain */
+let currentDomain; /* Default domain */
+
+// Funcție pentru a obține domeniul implicit din messages.json
+function getDefaultDomain() {
+  const defaultDomainMessage = chrome.i18n.getMessage('defaultDomain');
+  if (defaultDomainMessage) {
+    return defaultDomainMessage;
+  }
+  return 'www.coozila.com'; // Dacă nu se găsește mesajul, folosește o valoare implicită
+}
+
+// Inițializare cu domeniul implicit
+currentDomain = getDefaultDomain();
 let searchUrl = `https://${currentDomain}/search`; /* Default URL */
 
 /* Listen for messages from the extension */
@@ -8,7 +20,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     searchUrl = `https://${currentDomain}/search`; /* Update URL based on the new domain */
 
     /* Update search settings */
-    chrome.settings.searchProvider.updateSearchProvider({
+    chrome.runtime.updateSearchProvider({
       is_default: true,
       search_url: searchUrl,
       search_form: searchUrl + "?q={searchTerms}",
@@ -47,17 +59,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 /* Listen for the installation event */
 chrome.runtime.onInstalled.addListener((details) => {
-  console.log('Service worker installed:', details);
+  console.log('Extension installed:', details);
 });
 
 /* Listen for the activation event */
-self.addEventListener('activate', (event) => {
-  console.log('Service worker activated:', event);
+chrome.runtime.onStartup.addListener(() => {
+  console.log('Extension activated.');
 });
 
 /* Listen for messages from the extension */
-self.addEventListener('message', (event) => {
-  console.log('Message from extension:', event.data);
+chrome.runtime.onMessage.addListener((message) => {
+  console.log('Message from extension:', message);
 });
 
 // Register the service worker

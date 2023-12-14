@@ -20,9 +20,9 @@
     <div class="d-flex justify-content-center">
       <div class="row g-2">
         <div class="col">
-          <div class="input-group input-group-flat c-input-group--browsing c-input-group--search">
-            <input class="form-control form-control-lg o-form-control--browsing o-form-control--search" type="text" autocomplete="on" placeholder="Search" name="search" id="searchfield" onfocus="clearPlaceholder()" oninput="handleAutocomplete(this.value)"/>
-                      <span class="input-group-text c-input-group-text--browsing c-input-group-text--search d-flex justify-content-center">
+          <div class="input-group input-group-flat">
+            <input class="form-control form-control-lg" type="text" autocomplete="on" placeholder="Search" name="search" id="searchfield"/>
+                      <span class="input-group-text d-flex justify-content-center">
               <!-- Clear Button Start -->
               <button class="btn btn-icon ms-2" type="reset" onclick="if (document.getElementById('searchform').search.value == 'Keywords') { document.getElementById('searchform').search.value = ''; }" title="Reset search" data-bs-toggle="tooltip">
                 <svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -40,6 +40,18 @@
                 </select>
               </div>
               <!-- Search Select Finish -->
+
+    <!-- categories -->
+    <input type="hidden" name="categories" value="general,social media">
+
+    <!-- language -->
+    <input type="hidden" name="lang" id="languageInput" value="all">
+
+    <!-- locale -->
+    <input type="hidden" name="locale" id="localeInput" value="en">
+
+    <!-- date filter -->
+    <input type="hidden" name="time_range" value="month">
 
               <!-- Search Button Start -->
               <div class="col-auto input-field searchbutton ms-2">
@@ -63,11 +75,13 @@
 
     <!-- Adaugă orice alte elemente HTML sau logica JavaScript aici -->
 
+    <!-- index.html sau alt fișier HTML -->
+<script src="js/options.js" defer></script>
+<script src="js/domain.js" defer></script>
 <script src="js/searchform.js" defer></script>
 <script src="js/autocomplete.js" defer></script>
-<script src="js/domain.js" defer></script>
-
-  <script src="js/tabler.js" defer></script>
+<script src="js/locale.js" defer></script>
+<script src="js/tabler.js" defer></script>
 
 </body>
 </html>
