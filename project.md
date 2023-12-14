@@ -4,7 +4,7 @@ The file define the planning for Coozila Search extension
 
 ### Tasks:
 - Implement necessary functions for handling installation, activation, and extension messages.
-- Improve the project
+- Improve the project and the code for each file
 
 
 ## 1. `background.js`
@@ -282,3 +282,33 @@ This file contains the service worker logic for the Coozila! Chrome extension.
    - Uses `navigator.serviceWorker.register()` to register the service worker.
    - Logs the registration scope.
    - Handles registration success and failure.
+
+## 7. searchform.js
+### File Description
+This file contains the logic for handling search forms in the Coozila! Chrome extension.
+
+### Tasks:
+- Define necessary variables.
+- Implement functions for extension logic.
+- Ensure correct interaction with other components.
+- Write detailed documentation for each file and function.
+- Ensure that each functionality is explained and justified.
+- Add the following variables and functions
+
+### Required Variables:
+
+7.1 searchFormId: Identifier for the search form - Represents the ID of the search form in the HTML.
+
+7.2 searchQueryInputId: Identifier for the search query input - Represents the ID of the search query input in the HTML.
+Functions:
+
+7.3 handleSearchFormSubmission(): Function to handle the submission of the search form.
+- Logs the event.
+- Gets the value of the input field.
+- Sends a message to background.js containing the value of the search query, using sendMessageToBackground().
+
+7.4 customizePageStyles(): Function to customize page styles.
+- Logs the event.
+- Gets the value of the input field.
+- Sends a message to background.js containing the value of the search query, using sendMessageToBackground().
+

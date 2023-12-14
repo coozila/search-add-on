@@ -1,15 +1,20 @@
+// messages.json
+
 {
-    "extName": {
-      "message": "Numele Extensiei",
-      "description": "Descrierea extensiei"
-    },
-    "extDescription": {
-      "message": "Descrierea extensiei",
-      "description": "Descrierea detaliată a extensiei"
-    },
-    "welcome_message": {
-      "message": "Bun venit la extensia noastră!",
-      "description": "Mesaj de bun venit"
-    }
+  "extName": {
+    "message": "Coozila!",
+    "description": "Descrierea extensiei"
+  },
+  "extDescription": {
+    "message": "Descrierea extensiei",
+    "description": "Descrierea detaliată a extensiei"
+  },
+  "welcome_message": {
+    "message": "Bun venit la extensia noastră!",
+    "description": "Mesaj de bun venit"
+  },
+  "defaultDomain": {
+    "message": "www.coozila.com",
+    "description": "Coozila is a multifaceted search engine that ensures users can access a vast array of information while prioritizing privacy, ethical search practices, and user control. It integrates numerous plugins to offer secure and diverse search results while maintaining a commitment to user data protection and customization."
   }
-  
+}

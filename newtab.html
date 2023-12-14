@@ -1,3 +1,7 @@
+<!-- newtab.html -->
+
+<!-- newtab.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,40 +10,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coozila!</title>
     <!-- Adaugă stilurile de la Tabler -->
-    <link rel="stylesheet" href="https://www.coozila.com/static/themes/simple/css/coozila.min.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="https://www.coozila.com/static/themes/simple/css/coozila-rtl.min.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="https://www.coozila.com/static/themes/simple/css/src/less/mixins.less" type="text/css" media="screen" />
-    <link rel="stylesheet" href="https://www.coozila.com/static/themes/simple/css/src/less/style.less" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/tabler.css">
     <!-- Adaugă orice stil sau biblioteci CSS aici -->
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        input {
-            padding: 10px;
-            font-size: 16px;
-        }
-        button {
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <!-- Conținutul paginii de acțiune -->
-    <form id="coozilaSearchForm" method="get" action="https://www.coozila.com/search" target="_blank">
-        <!-- search      --> <input type="text" name="q" id="coozilaSearchQuery" />
-        <!-- categories  --> <input type="hidden" name="categories" value="general,social media" />
-        <!-- language    --> <input type="hidden" name="lang" value="all" />
-        <!-- locale      --> <input type="hidden" name="locale" value="en" />
-        <!-- date filter --> <input type="hidden" name="time_range" value="month" />
-        <!-- buton de cautare --> <button type="submit">Search</button>
-    </form>
+
+
+
+<div class="searchbox">
+  <form class="ajax_form" method="get" action="" id="searchform">
+    <div class="d-flex justify-content-center">
+      <div class="row g-2">
+        <div class="col">
+          <div class="input-group input-group-flat c-input-group--browsing c-input-group--search">
+            <input class="form-control form-control-lg o-form-control--browsing o-form-control--search" type="text" autocomplete="on" placeholder="Search" name="search" id="searchfield" onfocus="clearPlaceholder()" oninput="handleAutocomplete(this.value)"/>
+                      <span class="input-group-text c-input-group-text--browsing c-input-group-text--search d-flex justify-content-center">
+              <!-- Clear Button Start -->
+              <button class="btn btn-icon ms-2" type="reset" onclick="if (document.getElementById('searchform').search.value == 'Keywords') { document.getElementById('searchform').search.value = ''; }" title="Reset search" data-bs-toggle="tooltip">
+                <svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+              <!-- Clear Button Finish -->
+
+              <!-- Search Select Start -->
+              <div class="col-auto input-field ms-2">
+                <select class="form-select" id="domainSelector">
+                  <!-- Aici vom popula dinamic opțiunile de domenii -->
+                </select>
+              </div>
+              <!-- Search Select Finish -->
+
+              <!-- Search Button Start -->
+              <div class="col-auto input-field searchbutton ms-2">
+                <button class="btn btn-icon" title="Search" data-bs-toggle="tooltip" data-bs-placement="bottom" aria-label="Search" type="submit" name="searchbutton" value="Search">
+                  <svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <circle cx="10" cy="10" r="7" />
+                    <line x1="21" y1="21" x2="15" y2="15" />
+                  </svg>
+                </button>
+              </div>
+              <!-- Search Button Finish -->
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+
     <!-- Adaugă orice alte elemente HTML sau logica JavaScript aici -->
+
+<script src="js/searchform.js" defer></script>
+<script src="js/autocomplete.js" defer></script>
+<script src="js/domain.js" defer></script>
+
+  <script src="js/tabler.js" defer></script>
+
 </body>
 </html>
