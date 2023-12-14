@@ -1,4 +1,18 @@
-// locale.js
+
+  // locale.js
+
+// Obține limbajul browser-ului
+const browserLanguage = chrome.i18n.getUILanguage();
+
+// Inițializare cu domeniul implicit și limba implicită doar dacă nu au fost setate manual
+if (!currentDomain) {
+  currentDomain = getDefaultDomain();
+}
+
+if (!searchUrl) {
+  searchUrl = `https://${currentDomain}/search`; /* Default URL */
+}
+
 // Obțineți elementul de selectare și elementele ascunse pentru limbă și locale
 const languageSelector = document.getElementById('languageSelector');
 const languageInput = document.getElementById('languageInput');
@@ -31,13 +45,12 @@ document.addEventListener('DOMContentLoaded', function () {
         handleAutocomplete(this.value);
       });
     }
-  });
+});
 
-  document.getElementById('languageSelector').addEventListener('change', function () {
-    // Obține valoarea selectată (codul limbii)
-    var selectedLanguage = this.value;
+document.getElementById('languageSelector').addEventListener('change', function () {
+  // Obține valoarea selectată (codul limbii)
+  var selectedLanguage = this.value;
   
-    // Actualizează input-ul ascuns cu valoarea limbii selectate
-    document.getElementById('localeInput').value = selectedLanguage;
-  });
-  
+  // Actualizează input-ul ascuns cu valoarea limbii selectate
+  document.getElementById('localeInput').value = selectedLanguage;
+});
